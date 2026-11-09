@@ -11,4 +11,4 @@ Usa la skill `diagnostico-equipo`. Entrega:
 3. Qué NO hacer todavía (formatear, borrar, abrir el equipo sin respaldo).
 4. Si hace falta datos del PC, indica el script `scripts/diagnostico-windows.ps1` (solo lee) y cómo ejecutarlo.
 
-Español simple; si usas un término técnico, explícalo en pocas palabras. No inventes datos del equipo: pregunta lo que falte (marca, Windows, ruido, luces).
+Si pides el archivo del script, pide solo las secciones que importan (discos, RAM, errores críticos), no todo. Español simple; si usas un término técnico, explícalo en pocas palabras. No inventes datos del equipo: pregunta lo que falte (marca, Windows, ruido, luces).
