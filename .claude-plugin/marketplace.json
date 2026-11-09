@@ -41,6 +41,74 @@
       "name": "comodidad-jeiler",
       "source": "./plugins/comodidad-jeiler",
       "description": "Semáforo de contexto, «sin probar», bitácora, sugerir modelo y aviso al terminar."
+    },
+    {
+      "name": "n8n-jeiler",
+      "source": "./plugins/n8n-jeiler",
+      "description": "Nuevo flujo, revisar flujo y limpiar flujo de n8n sin credenciales."
+    },
+    {
+      "name": "clientes-jeiler",
+      "source": "./plugins/clientes-jeiler",
+      "description": "Cotizar, briefing, acta de entrega y mensajes de WhatsApp para clientes."
+    },
+    {
+      "name": "agentes-ia-jeiler",
+      "source": "./plugins/agentes-ia-jeiler",
+      "description": "Elegir API gratis, estimar costo y plantilla de agente."
+    },
+    {
+      "name": "aprender-jeiler",
+      "source": "./plugins/aprender-jeiler",
+      "description": "Modo aprendizaje y /glosario guardado en tu hoja de Drive."
+    },
+    {
+      "name": "agent-skills-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/agent-skills-jeiler"
+      },
+      "description": "Skills: n8n, agentes con IA, Cloudflare, Firebase, bots y APIs gratis."
+    },
+    {
+      "name": "app-skills-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/app-skills-jeiler"
+      },
+      "description": "Skills para apps web: diseño, PWA, rendimiento y pruebas."
+    },
+    {
+      "name": "apk-skills-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/apk-skills-jeiler"
+      },
+      "description": "Skills para pasar apps web a APK y trabajar con Android y Expo."
+    },
+    {
+      "name": "servicios-skills-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/servicios-skills-jeiler"
+      },
+      "description": "Skills para tus servicios: cotizador, briefing, Excel contable, habeas data."
+    },
+    {
+      "name": "video-crear-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/video-crear-jeiler"
+      },
+      "description": "Skills para crear videos educativos y cortometrajes."
+    },
+    {
+      "name": "video-editar-jeiler",
+      "source": {
+        "source": "github",
+        "repo": "jrivadeneiramejia1-source/video-editar-jeiler"
+      },
+      "description": "Skills para editar y limpiar videos."
     }
   ]
 }

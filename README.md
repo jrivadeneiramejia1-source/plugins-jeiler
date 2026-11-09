@@ -18,6 +18,11 @@ Cambia `modelos-jeiler` por el plugin que quieras.
 | `apps-jeiler` | `/estado-repos`, `/antes-de-subir`, `/actualizar-drive` (solo si lo pides), agente `auditor`. |
 | `seguridad-jeiler` | Aviso antes de gastar créditos, guardián de flujos n8n y escáner de teléfonos/cédulas/correos. |
 | `comodidad-jeiler` | Semáforo de contexto, recordatorio «sin probar», `/bitacora`, sugerir modelo y aviso al terminar. |
+| `n8n-jeiler` | `/nuevo-flujo`, `/revisar-flujo`, `/limpiar-flujo` (script con pruebas) y agente revisor. |
+| `clientes-jeiler` | `/cotizar`, `/briefing`, `/acta-entrega`, `/mensaje-cliente`. |
+| `agentes-ia-jeiler` | `/elegir-api-gratis`, `/costo-estimado`, `/nuevo-agente`. |
+| `aprender-jeiler` | Modo aprendizaje y `/glosario` (se guarda en tu hoja «Glosario Jeiler» de Drive). |
+| `agent-skills-jeiler`, `app-skills-jeiler`, `apk-skills-jeiler`, `servicios-skills-jeiler`, `video-crear-jeiler`, `video-editar-jeiler` | Tus repos de skills, instalables como plugin (cada repo tiene su `plugin.json`; funcionan cuando se une su PR). |
 
 ## Qué está probado y qué no
 Ver cada README. Los mods tienen pruebas con caso bueno y malo (`claude plugin test`). Sin probar en una sesión real: cómo se ve la barra de estado, el panel «Mi día» en pantalla, el script de PowerShell (no había Windows) y el comando `/buenos-dias` con tus cuentas.

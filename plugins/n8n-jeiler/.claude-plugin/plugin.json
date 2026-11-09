@@ -1,0 +1,5 @@
+{
+  "name": "n8n-jeiler",
+  "version": "0.1.0",
+  "description": "Flujos de n8n más rápidos y seguros: crear la base, revisar errores y limpiar credenciales antes de subir."
+}
