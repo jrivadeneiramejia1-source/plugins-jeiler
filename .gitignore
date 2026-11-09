@@ -1,0 +1,5 @@
+node_modules/
+*.log
+.env
+.dev.vars
+diagnostico-*.txt

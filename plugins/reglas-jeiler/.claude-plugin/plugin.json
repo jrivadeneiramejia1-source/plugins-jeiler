@@ -1,0 +1,5 @@
+{
+  "name": "reglas-jeiler",
+  "version": "0.1.0",
+  "description": "Guardián: bloquea subir a main, tocar carpetas de comunidades indígenas, borrados peligrosos y claves en el código. Muestra la rama y los cambios sin subir."
+}

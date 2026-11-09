@@ -1,0 +1,6 @@
+{
+  "name": "dia-a-dia",
+  "version": "0.1.0",
+  "description": "Tu día en orden: /buenos-dias, /cierre-dia y un panel «Mi día» con pendientes que se guardan entre sesiones.",
+  "types": "./types/index.d.ts"
+}

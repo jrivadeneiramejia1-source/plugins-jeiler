@@ -1,0 +1,12 @@
+{
+  "name": "plugins-jeiler",
+  "owner": { "name": "Jeiler" },
+  "metadata": { "description": "Plugins y mods de Jeiler para el día a día: modelos, reglas, soporte técnico, apps y organización." },
+  "plugins": [
+    { "name": "modelos-jeiler", "source": "./plugins/modelos-jeiler", "description": "Opus planea, Sonnet ejecuta, Haiku responde lo simple; bloquea ediciones en Opus." },
+    { "name": "reglas-jeiler", "source": "./plugins/reglas-jeiler", "description": "Guardián: main, carpetas indígenas, borrados peligrosos y claves." },
+    { "name": "dia-a-dia", "source": "./plugins/dia-a-dia", "description": "/buenos-dias, /cierre-dia y panel Mi día con pendientes." },
+    { "name": "soporte-tecnico", "source": "./plugins/soporte-tecnico", "description": "Diagnóstico, informe de servicio e inventario de equipos." },
+    { "name": "apps-jeiler", "source": "./plugins/apps-jeiler", "description": "Estado de repos, revisión antes de subir y auditor de apps." }
+  ]
+}

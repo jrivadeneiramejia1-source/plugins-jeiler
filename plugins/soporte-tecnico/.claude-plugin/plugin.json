@@ -1,0 +1,5 @@
+{
+  "name": "soporte-tecnico",
+  "version": "0.1.0",
+  "description": "Para soporte y mantenimiento de equipos: diagnóstico paso a paso, informe de servicio e inventario. Script solo-lectura para Windows."
+}
