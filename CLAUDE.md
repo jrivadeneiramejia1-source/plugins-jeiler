@@ -10,3 +10,4 @@
 ## Estructura
 `plugins/<nombre>/` = un plugin (`.claude-plugin/plugin.json`, `agents/`, `commands/`, `skills/`, `hooks/` para los mods). `.claude-plugin/marketplace.json` lista los plugins.
 Validar: `claude plugin validate plugins/<nombre>`.
+- **Al cambiar el código de un plugin, sube su `version` en `plugin.json`** (por ejemplo 0.1.0 → 0.1.1). Si no, `claude plugin update` dice «ya está en la última versión» y los otros computadores no reciben el cambio.
