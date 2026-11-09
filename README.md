@@ -16,6 +16,8 @@ Cambia `modelos-jeiler` por el plugin que quieras.
 | `dia-a-dia` | `/buenos-dias`, `/cierre-dia`, panel «Mi día» (`/pendiente`, `/hecho`). |
 | `soporte-tecnico` | `/diagnostico`, informe de servicio, inventario; script de Windows que solo lee. |
 | `apps-jeiler` | `/estado-repos`, `/antes-de-subir`, `/actualizar-drive` (solo si lo pides), agente `auditor`. |
+| `seguridad-jeiler` | Aviso antes de gastar créditos, guardián de flujos n8n y escáner de teléfonos/cédulas/correos. |
+| `comodidad-jeiler` | Semáforo de contexto, recordatorio «sin probar», `/bitacora`, sugerir modelo y aviso al terminar. |
 
 ## Qué está probado y qué no
 Ver cada README. Los mods tienen pruebas con caso bueno y malo (`claude plugin test`). Sin probar en una sesión real: cómo se ve la barra de estado, el panel «Mi día» en pantalla, el script de PowerShell (no había Windows) y el comando `/buenos-dias` con tus cuentas.

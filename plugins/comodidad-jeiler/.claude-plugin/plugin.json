@@ -1,0 +1,6 @@
+{
+  "name": "comodidad-jeiler",
+  "version": "0.1.0",
+  "description": "Mods de comodidad: semáforo de contexto, recordatorio «sin probar», bitácora del día, sugerencia de modelo y aviso al terminar.",
+  "types": "./types/index.d.ts"
+}
