@@ -7,3 +7,5 @@ Ayuda para el trabajo de soporte y mantenimiento de equipos.
 - `scripts/diagnostico-windows.ps1`: recoge datos de un PC con Windows. Solo lee; crea un archivo de texto nuevo. El archivo trae el nombre del equipo: no lo subas a repos públicos.
 
 Instalar: `/plugin install soporte-tecnico --marketplace jrivadeneiramejia1-source/plugins-jeiler`
+
+- Skills de soporte avanzado: `comandos-windows`, `redes-e-impresoras` y `respaldo-y-formateo` (comandos marcados [P]: no se probaron aquí por no haber Windows).
