@@ -11,5 +11,6 @@ Usa las skills `crear-agente` y `seguridad-agentes` si están. Entrega una plant
 3. Qué NO puede hacer (gastar, borrar, publicar sin «sí»).
 4. Dónde corre (n8n, Cloudflare Worker, etc.) y dónde van las claves (Secrets; nunca en el código).
 5. Cómo se prueba con un caso bueno y uno malo.
-6. Costo estimado por mes (usa `/costo-estimado`).
-Español simple. No crees nada: solo la plantilla.
+6. Costo aproximado por mes: un rango en dólares con tus supuestos; para el cálculo exacto, Jeiler puede usar `/costo-estimado`. No inventes precios de modelos que no conozcas.
+
+**Tu respuesta final debe traer las 6 secciones**, aunque hagas cálculos antes. Español simple. No crees archivos ni nada más: solo la plantilla.

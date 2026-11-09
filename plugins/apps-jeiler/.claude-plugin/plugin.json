@@ -1,5 +1,5 @@
 {
   "name": "apps-jeiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Para tus apps en GitHub y Cloudflare: estado de repos, revisión antes de subir y actualización del Drive solo si lo pides."
 }

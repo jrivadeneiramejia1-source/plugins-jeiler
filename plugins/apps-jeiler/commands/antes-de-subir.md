@@ -10,4 +10,4 @@ Revisa el repositorio actual ANTES de subir. Solo leer y correr pruebas; no haga
 4. Si se copió algo de terceros: ¿tiene licencia abierta y está en `third-party/`?
 5. Confirma que la rama NO es `main`.
 
-Resultado: lista de 5 líneas con ✔ o ✘ y qué quedó sin probar. Español simple. Subir solo con el «sí» de Jeiler.
+Resultado: lista de 5 líneas con ✔ (se comprobó y está bien), ✘ (falló) o ⚠ (no había nada que comprobar, por ejemplo no hay pruebas) y qué quedó sin probar. No pongas ✔ si no verificaste nada. Español simple. Subir solo con el «sí» de Jeiler.

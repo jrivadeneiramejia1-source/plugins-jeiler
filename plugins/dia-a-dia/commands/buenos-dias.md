@@ -10,6 +10,6 @@ Haz mi resumen de hoy, SOLO LEYENDO (no envíes, borres, respondas ni marques na
    - **Urgentes:** alertas de seguridad (nuevo inicio de sesión), pagos, clientes, fechas límite.
    - **Pedidos y envíos:** una sola línea con el estado más reciente de cada pedido.
    - **Ruido:** newsletters y ofertas; solo di cuántos hay.
-3. Si el panel «Mi día» tiene pendientes, recuérdamelos con `/mi-dia`.
+3. Termina sugiriendo a Jeiler que escriba `/mi-dia` para ver su panel de pendientes (tú no puedes ejecutarlo).
 
 Formato: 3 secciones cortas («Hoy», «Correos», «Pendientes»), una línea por cosa, español simple. No copies el contenido completo de los correos. Si un conector no responde, dilo en una línea y sigue con lo demás.
