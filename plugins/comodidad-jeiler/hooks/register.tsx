@@ -29,12 +29,20 @@ function sugerencia(texto: string): string | undefined {
   return undefined
 }
 
+let editoCodigo = false
+let probo = false
+let archivos: string[] = []
+let inicio = 0
+let prompts = 0
+
+function anotarEdicion($: any, e: any, next: any) {
+  const ruta = String(e.file_path ?? e.notebook_path ?? '')
+  if (ruta) archivos.push(ruta.split('/').slice(-2).join('/'))
+  if (CODIGO.test(ruta)) editoCodigo = true
+  return next(e)
+}
+
 export const register: Register = on => {
-  let editoCodigo = false
-  let probo = false
-  let archivos: string[] = []
-  let inicio = 0
-  let prompts = 0
 
   on('session.start', async ($, e, next) => {
     await $.command.register({ name: 'bitacora', description: 'Muestra lo que se tocó hoy' })
@@ -66,14 +74,9 @@ export const register: Register = on => {
     return next(e)
   }).catch(($, e, next) => next(e))
 
-  for (const tool of ['Edit', 'Write', 'NotebookEdit'] as const) {
-    on('tool.call', { tool }, ($, e: any, next) => {
-      const ruta = String(e.file_path ?? e.notebook_path ?? '')
-      if (ruta) archivos.push(ruta.split('/').slice(-2).join('/'))
-      if (CODIGO.test(ruta)) editoCodigo = true
-      return next(e)
-    }).catch(($, e, next) => next(e))
-  }
+  on('tool.call', { tool: 'Edit' }, anotarEdicion).catch(($, e, next) => next(e))
+  on('tool.call', { tool: 'Write' }, anotarEdicion).catch(($, e, next) => next(e))
+  on('tool.call', { tool: 'NotebookEdit' }, anotarEdicion).catch(($, e, next) => next(e))
 
   on('tool.call', { tool: 'Bash' }, ($, e, next) => {
     if (PRUEBA.test(e.command)) probo = true
@@ -89,7 +92,15 @@ export const register: Register = on => {
       lista.push({ dia: dia(ahora), hora: hora(ahora), archivos: [...new Set(archivos)].slice(0, 20) })
       await $.store.set('bitacora', lista.slice(-300))
     }
-    if (ahora - inicio > MIN_AVISO_MS) $.ui.toast(`✅ Terminó (${Math.round((ahora - inicio) / 1000)} s)`)
+    if (ahora - inicio > MIN_AVISO_MS) {
+      const texto = `✅ Terminó (${Math.round((ahora - inicio) / 1000)} s)`
+      $.ui.toast(texto)
+      try {
+        await $.ui.notify(texto, { title: 'Claude terminó' })
+      } catch {
+        // si el sistema no deja notificar, queda el aviso dentro de Claude
+      }
+    }
     return next(e)
   }).catch(($, e, next) => next(e))
 

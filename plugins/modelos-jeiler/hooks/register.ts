@@ -20,16 +20,18 @@ const esOpus = (m: string) => m.includes('opus')
 const MENSAJE =
   'Estás en Opus: solo se planea. Escribe el plan en .planes/ o cámbiate a Sonnet con /model para ejecutar.'
 
-export const register: Register = on => {
-  for (const tool of ['Edit', 'Write', 'NotebookEdit'] as const) {
-    on('tool.call', { tool }, async ($, e: any, next) => {
-      const ruta: string = e.file_path ?? e.notebook_path ?? ''
-      if (esOpus(await modeloActual($)) && !RUTA_PLAN.test(ruta)) {
-        return { deny: MENSAJE }
-      }
-      return next(e)
-    }).catch(($, e, next) => next(e))
+async function bloquearEdicion($: any, e: any, next: any) {
+  const ruta: string = e.file_path ?? e.notebook_path ?? ''
+  if (esOpus(await modeloActual($)) && !RUTA_PLAN.test(ruta)) {
+    return { deny: MENSAJE }
   }
+  return next(e)
+}
+
+export const register: Register = on => {
+  on('tool.call', { tool: 'Edit' }, bloquearEdicion).catch(($, e, next) => next(e))
+  on('tool.call', { tool: 'Write' }, bloquearEdicion).catch(($, e, next) => next(e))
+  on('tool.call', { tool: 'NotebookEdit' }, bloquearEdicion).catch(($, e, next) => next(e))
 
   on('tool.call', { tool: 'Bash' }, async ($, e, next) => {
     if (esOpus(await modeloActual($)) && BASH_CAMBIA.test(e.command)) {

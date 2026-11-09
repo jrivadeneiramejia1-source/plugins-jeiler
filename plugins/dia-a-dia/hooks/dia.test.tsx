@@ -7,13 +7,13 @@ test('agrega un pendiente, lo marca hecho y se ve en el panel', async ($, on) =>
   on('session.start', (_, e) => ({ cwd: e.cwd }))
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
 
-  const a = await $.command.run({ command: 'pendiente', args: 'comprar cable' })
+  const a = await $.command.run({ command: 'pendiente', args: 'comprar cable' } as any)
   expect(a.text).toContain('comprar cable')
-  const vacio = await $.command.run({ command: 'pendiente', args: '' })
+  const vacio = await $.command.run({ command: 'pendiente', args: '' } as any)
   expect(vacio.text).toContain('Escribe')
-  const h = await $.command.run({ command: 'hecho', args: '1' })
+  const h = await $.command.run({ command: 'hecho', args: '1' } as any)
   expect(h.text).toContain('Hecho')
-  const malo = await $.command.run({ command: 'hecho', args: '9' })
+  const malo = await $.command.run({ command: 'hecho', args: '9' } as any)
   expect(malo.text).toContain('número')
 
   const ui = await $.ui.mount({
