@@ -25,4 +25,19 @@ Cambia `modelos-jeiler` por el plugin que quieras.
 | `agent-skills-jeiler`, `app-skills-jeiler`, `apk-skills-jeiler`, `servicios-skills-jeiler`, `video-crear-jeiler`, `video-editar-jeiler` | Tus repos de skills, instalables como plugin (cada repo tiene su `plugin.json`; funcionan cuando se une su PR). |
 
 ## Qué está probado y qué no
-Ver cada README. Los mods tienen pruebas con caso bueno y malo (`claude plugin test`). Sin probar en una sesión real: cómo se ve la barra de estado, el panel «Mi día» en pantalla, el script de PowerShell (no había Windows) y el comando `/buenos-dias` con tus cuentas.
+**Probado de verdad (sesiones reales de Claude Code):**
+- Instalar desde GitHub el marketplace y los plugins (incluidos los repos de skills).
+- Bloqueo en Opus: no deja crear archivos en Opus y sí en Sonnet.
+- `reglas-jeiler`: bloquea `git push origin main`, borrar en carpetas `consulta-previa`/`indígena` y claves en archivos.
+- `seguridad-jeiler`: bloquea un `git commit` con teléfono; deja pasar uno limpio y subir una rama.
+- Comandos `/limpiar-flujo` y `/estado-repos` con su script.
+- Hojas de Drive: buscar por nombre, leer, agregar fila y limpiar (lo que hacen `/gasto` y `/glosario`).
+- `/buenos-dias`: las consultas a Calendar y Gmail funcionan.
+- Todos los mods pasan `claude plugin test`, `claude plugin validate` y la revisión de tipos con `tsc`.
+- El script de Windows: sintaxis correcta y no se rompe cuando no puede leer algo.
+
+**Sin probar (se necesita verlo en pantalla o en Windows):**
+- Cómo se dibujan la banda (semáforo y «sin probar»), el panel «Mi día», los avisos y la notificación al terminar.
+- Que el script de Windows imprima datos reales en un PC con Windows.
+- `/publicar-app` (los subcomandos de wrangler existen, pero no se publicó nada).
+- Los comandos de clientes, agentes y n8n que solo generan texto: su formato es válido, su calidad se ve usándolos.

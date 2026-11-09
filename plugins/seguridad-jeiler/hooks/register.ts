@@ -39,6 +39,14 @@ const TELEFONO = /(?<!\d)(\+?57[\s-]?)?3\d{2}[\s-]?\d{3}[\s-]?\d{4}(?!\d)/
 const CEDULA = /\b(c\.?\s?c\.?|c[ée]dula)[^\d\n]{0,15}\d{1,3}(\.?\d{3}){2}\b/i
 const CORREO = /[\w.+-]+@(?!example\.|users\.noreply|anthropic\.com)[\w-]+\.[\w.]+/
 
+function avisarContenido($: any, e: any, next: any) {
+  const t = String(e.content ?? e.new_string ?? '')
+  if (/\.json$/i.test(String(e.file_path)) && n8nMalo(t)) $.ui.toast(`⚠ ${AVISO_N8N}`)
+  if (TELEFONO.test(t) || CEDULA.test(t) || CORREO.test(t))
+    $.ui.toast('⚠ Se ve un teléfono, cédula o correo. Si es real, no va en repos públicos.')
+  return next(e)
+}
+
 export const register: Register = on => {
   on('tool.call', ($, e, next) => {
     if (GASTA.test(String(e.tool))) {
@@ -47,15 +55,8 @@ export const register: Register = on => {
     return next(e)
   }).catch(($, e, next) => next(e))
 
-  for (const tool of ['Write', 'Edit'] as const) {
-    on('tool.call', { tool }, ($, e: any, next) => {
-      const t = String(e.content ?? e.new_string ?? '')
-      if (/\.json$/i.test(String(e.file_path)) && n8nMalo(t)) $.ui.toast(`⚠ ${AVISO_N8N}`)
-      if (TELEFONO.test(t) || CEDULA.test(t) || CORREO.test(t))
-        $.ui.toast('⚠ Se ve un teléfono, cédula o correo. Si es real, no va en repos públicos.')
-      return next(e)
-    }).catch(($, e, next) => next(e))
-  }
+  on('tool.call', { tool: 'Write' }, avisarContenido).catch(($, e, next) => next(e))
+  on('tool.call', { tool: 'Edit' }, avisarContenido).catch(($, e, next) => next(e))
 
   on('tool.call', { tool: 'Bash' }, async ($, e, next) => {
     if (/\bgit\s+commit\b/.test(e.command)) {
