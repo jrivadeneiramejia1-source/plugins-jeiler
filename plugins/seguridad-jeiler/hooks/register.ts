@@ -16,7 +16,7 @@ function agregadas(diff: string): string {
   let archivo = ''
   for (const l of diff.split('\n')) {
     if (l.startsWith('+++ ')) archivo = l.slice(4)
-    else if (l.startsWith('+') && !/lock/i.test(archivo)) out.push(l.slice(1))
+    else if (l.startsWith('+') && !/lock/i.test(archivo) && !/(^|\/)lib\//.test(archivo)) out.push(l.slice(1))
   }
   return out.join('\n')
 }
