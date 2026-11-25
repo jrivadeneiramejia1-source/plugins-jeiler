@@ -16,7 +16,7 @@ const BASH_CAMBIA = /\brm\b|\bmv\b|\bsed\s+-i|\btruncate\b|\btee\b|\bshred\b|>\s
 export const juzgar = (c: string): string | undefined => {
   if (PUSH_MAIN.test(c)) return 'Subir a main o a la fuerza solo con el «sí» explícito de Jeiler. Usa una rama.'
   if (BORRADO.test(c)) return 'Borrado peligroso bloqueado. Pídele permiso a Jeiler.'
-    if (INDIGENA.test(c) && BASH_CAMBIA.test(c))
+  if (INDIGENA.test(c) && BASH_CAMBIA.test(c))
     return 'Archivos de comunidades indígenas: no se modifican ni se borran. Crea un archivo nuevo.'
   if (SECRETO.test(c)) return 'Se ve una clave o token en el comando. No se guardan claves; usa los Secrets.'
   return undefined
