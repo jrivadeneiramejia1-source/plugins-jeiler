@@ -12,6 +12,8 @@ const PUSH_SIN_RAMA = /\bgit\s+push\b(?![^\n;&|]*\borigin\s+\S)/
 const BORRADO = /\brm\s+-[a-zA-Z]*[rf][a-zA-Z]*\s+(\/|~|\$HOME|\*|\.)(\s|$)/
 // Cambios sobre una carpeta indígena desde la terminal.
 const BASH_CAMBIA = /\brm\b|\bmv\b|\bsed\s+-i|\btruncate\b|\btee\b|\bshred\b|>\s*\S/
+// Comandos que cambian cosas: si la revisión falla, estos sí se bloquean.
+const CAMBIA_COSAS = /\bgit\s+(push|commit)\b|\brm\b|\bmv\b/
 
 export const juzgar = (c: string): string | undefined => {
   if (PUSH_MAIN.test(c)) return 'Subir a main o a la fuerza solo con el «sí» explícito de Jeiler. Usa una rama.'
@@ -55,7 +57,13 @@ export const register: Register = on => {
         return { deny: 'Hay una clave o token en lo que vas a guardar (commit). Quítala antes.' }
     }
     return next(e)
-  }).catch(($, e, next) => (next.called ? next(e) : { deny: 'reglas-jeiler: falló la revisión; por seguridad no se ejecuta.' }))
+  }).catch(($, e, next) =>
+    next.called
+      ? next(e)
+      : CAMBIA_COSAS.test(String(e.command))
+        ? { deny: 'reglas-jeiler: falló la revisión y este comando puede cambiar cosas. No se ejecuta.' }
+        : next(e),
+  )
 
   on('tool.call', { tool: 'Edit' }, async ($, e: any, next) => {
     if (INDIGENA.test(e.file_path)) return { deny: 'Archivos de comunidades indígenas: no se modifican. Crea un archivo nuevo.' }
